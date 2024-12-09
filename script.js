@@ -1,5 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Ambil elemen tombol dan bagian yang terkait
+    // Smooth Scroll
+    document.querySelectorAll('.navbar a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Toggle Burger Menu
+    function toggleMenu() {
+        const menu = document.querySelector('.navbar ul');
+        const burger = document.querySelector('.burger-menu');
+        menu.classList.toggle('show');
+        burger.classList.toggle('open');
+    }
+});
+
+
+    // Toggle visibility of sections on click
     const showMoreBtn = document.getElementById("show-more-btn");
     const detailsSection = document.getElementById("details");
 
@@ -9,7 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const showHistoryBtn = document.getElementById("show-history-btn");
     const historySection = document.getElementById("history");
 
-    // Event listener untuk tombol "Tampilkan Profil"
     showMoreBtn.addEventListener("click", () => {
         if (detailsSection.classList.contains("hidden")) {
             detailsSection.classList.remove("hidden");
@@ -20,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Event listener untuk tombol "Foto-foto saat magang"
     showPhotosBtn.addEventListener("click", () => {
         if (photoGallery.classList.contains("hidden")) {
             photoGallery.classList.remove("hidden");
@@ -31,7 +49,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Event listener untuk tombol "Sejarah Telkom"
     showHistoryBtn.addEventListener("click", () => {
         if (historySection.classList.contains("hidden")) {
             historySection.classList.remove("hidden");
@@ -41,43 +58,30 @@ document.addEventListener("DOMContentLoaded", function () {
             showHistoryBtn.textContent = "Sejarah Telkom";
         }
     });
-});
-// Smooth Scroll
-document.querySelectorAll('.navbar a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+
+    // Intersection Observer for Animations
+    const sections = document.querySelectorAll('.section');
+    const options = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
         });
-    });
-});
+    }, options);
 
-// Animasi Saat Scroll
-const sections = document.querySelectorAll('.section');
-const options = {
-    threshold: 0.1
-};
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            observer.unobserve(entry.target);
-        }
+    sections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(50px)';
+        section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        observer.observe(section);
     });
-}, options);
 
-sections.forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(50px)';
-    section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-    observer.observe(section);
-});
-document.querySelectorAll('nav ul li a').forEach((link) => {
-    link.addEventListener('click', () => {
-        link.style.transform = 'scale(1.1)';
-        setTimeout(() => {
-            link.style.transform = '';
-        }, 200);
-    });
-});
+function toggleMenu() {
+    const menu = document.querySelector('.navbar ul');
+    const burger = document.querySelector('.burger-menu');
+    menu.classList.toggle('show');
+    burger.classList.toggle('open');
+}
