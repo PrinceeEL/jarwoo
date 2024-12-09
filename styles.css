@@ -1,0 +1,205 @@
+/* General Reset */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background: linear-gradient(to bottom, #ffffff, #dfe9f3);
+    background-attachment: fixed; /* Latar belakang mengikuti scrolling */
+}
+
+
+/* Navbar Styles */
+.navbar {
+    background-color: #0078D7;
+    color: #fff;
+    padding: 0.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.navbar ul li {
+    padding: 0.5rem;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.navbar ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Header */
+header h1 {
+    text-align: center;
+    margin: 1rem 0;
+    color: #0078D7;
+}
+
+/* Sections */
+.section {
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 10px;
+    border: 2px solid #ff0d00;
+    background: linear-gradient(145deg, #ffffff, #ffe7ec);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.section h2 {
+    color: #1b0206;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(250, 67, 98, 0.5);
+}
+
+
+/* Profile */
+.profile-pic {
+    display: block;
+    margin: 0 auto;
+    max-width: 150px;
+    border-radius: 50%;
+}
+
+/* Photos */
+.photos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.photos img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photos img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Footer */
+footer {
+    text-align: center;
+    background: linear-gradient(90deg, #fb0000, #000000);
+    color: #fff;
+    padding: 1rem;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Navbar Modern */
+.navbar {
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid rgba(38, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Navbar Tetap Terlihat */
+.navbar {
+    background: linear-gradient(90deg, #000000, #ff022c);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tambahkan efek bayangan */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+
+/* List Items */
+.navbar ul {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease, transform 0.2s, box-shadow 0.3s;
+}
+
+/* Hover Animasi */
+.navbar ul li a:hover {
+    color: #ed2902;
+    text-shadow: 0 0 5px #f83a00, 0 0 10px #ff0000;
+}
+
+/* Animasi Aktif */
+.navbar ul li a:active {
+    transform: scale(1.1);
+}
+
+/* Decorative Line */
+.navbar ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background: #e5e2d9;
+    transition: width 0.3s ease-in-out;
+}
+
+.navbar ul li a:hover::after {
+    width: 100%;
+}
+
+/* Ikon */
+.navbar ul li a::before {
+    content: '| '; /* Simbol tambahan */
+    color: #000505;
+    margin-right: 0.3rem;
+    transition: transform 0.3s;
+}
+
+.navbar ul li a:hover::before {
+    transform: translateX(5px);
+}
