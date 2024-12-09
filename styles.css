@@ -5,50 +5,39 @@ body {
     color: #333;
     line-height: 1.6;
     background: linear-gradient(to bottom, #ffffff, #dfe9f3);
-    background-attachment: fixed; /* Latar belakang mengikuti scrolling */
+    background-attachment: fixed;
 }
-
 
 /* Navbar Styles */
 .navbar {
-    background-color: #0078D7;
-    color: #fff;
-    padding: 0.5rem;
+    background: linear-gradient(90deg, #000000, #ff022c);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: sticky;
     top: 0;
+    width: 100%;
     z-index: 1000;
 }
 
 .navbar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
-    justify-content: space-around;
-}
-
-.navbar ul li {
-    padding: 0.5rem;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .navbar ul li a {
     text-decoration: none;
     color: #fff;
+    font-size: 1.1rem;
     font-weight: bold;
+    position: relative;
 }
 
-.navbar ul li a:hover {
-    text-decoration: underline;
-}
-
-/* Header */
-header h1 {
-    text-align: center;
-    margin: 1rem 0;
-    color: #0078D7;
-}
-
-/* Sections */
+/* Section Styles */
 .section {
     margin: 2rem auto;
     padding: 2rem;
@@ -71,8 +60,7 @@ header h1 {
     text-shadow: 0 1px 3px rgba(250, 67, 98, 0.5);
 }
 
-
-/* Profile */
+/* Profile Picture */
 .profile-pic {
     display: block;
     margin: 0 auto;
@@ -80,7 +68,7 @@ header h1 {
     border-radius: 50%;
 }
 
-/* Photos */
+/* Photos Section */
 .photos {
     display: flex;
     flex-wrap: wrap;
@@ -89,17 +77,16 @@ header h1 {
 }
 
 .photos img {
-    width: 100%; /* Gambar memenuhi kontainer */
-    max-width: 150px; /* Tetap ada batas maksimal untuk desktop */
-    height: auto; /* Menyesuaikan tinggi secara proporsional */
+    max-width: 150px;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
 }
-
 
 .photos img:hover {
     transform: scale(1.1);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
-
 
 /* Footer */
 footer {
@@ -107,10 +94,15 @@ footer {
     background: linear-gradient(90deg, #fb0000, #000000);
     color: #fff;
     padding: 1rem;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
     font-weight: bold;
-    font-size: 1rem;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
 
 /* Navbar Modern */
 .navbar {
